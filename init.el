@@ -87,3 +87,6 @@
 
 ;; set automatic desktop save sessions and load on opening
 (desktop-save-mode 1)
+
+;; prevent ido from switching to other directories when creating/searching files
+(setq ido-auto-merge-work-directories-length -1)
