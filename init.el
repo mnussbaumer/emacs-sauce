@@ -92,3 +92,8 @@
 
 ;; prevent ido from switching to other directories when creating/searching files
 (setq ido-auto-merge-work-directories-length -1)
+
+
+;; do auto buffer reverts when files are changed on disk and the buffer has no unsaved changes,
+;; useful for git when changing branches to re-update all buffers that are open
+(global-auto-revert-mode)
