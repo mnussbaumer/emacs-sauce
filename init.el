@@ -43,6 +43,8 @@
 (tool-bar-mode -1)
 ;; hide the menubar
 (menu-bar-mode -1)
+;; hide the scrollbars
+(toggle-scroll-bar -1)
 
 ;; default to full-screen on opening
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
