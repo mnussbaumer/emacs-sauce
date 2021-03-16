@@ -87,6 +87,10 @@
 
 (mmm-add-mode-ext-class 'mhtml-mode nil 'eex-elixir)
 
+;; add elixir auto format on save
+(add-hook 'elixir-mode-hook
+          (lambda () (add-hook 'before-save-hook elixir-format nil t)))
+
 ;; set automatic desktop save sessions and load on opening
 (desktop-save-mode 1)
 
