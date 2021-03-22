@@ -67,6 +67,13 @@
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 
+;; require elixir-mode or hook won't set
+(require 'elixir-mode)
+;; add elixir auto format on save
+(add-hook 'elixir-mode-hook
+          (lambda () (add-hook 'before-save-hook elixir-format nil t)))
+
+
 ;; shenanigans for support eex elixir blocks
 (require 'mmm-defaults)
 
@@ -86,10 +93,6 @@
     :back " %>"))) ;; regex to find the closing tag
 
 (mmm-add-mode-ext-class 'mhtml-mode nil 'eex-elixir)
-
-;; add elixir auto format on save
-(add-hook 'elixir-mode-hook
-          (lambda () (add-hook 'before-save-hook elixir-format nil t)))
 
 ;; set automatic desktop save sessions and load on opening
 (desktop-save-mode 1)
