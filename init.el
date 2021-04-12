@@ -71,7 +71,7 @@
 (require 'elixir-mode)
 ;; add elixir auto format on save
 (add-hook 'elixir-mode-hook
-          (lambda () (add-hook 'before-save-hook elixir-format nil t)))
+          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
 
 ;; shenanigans for support eex elixir blocks
@@ -84,6 +84,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.html.eex\\'" . mhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.html.leex\\'" . mhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.cssex\\'" . scss-mode))
 
 (mmm-add-classes
  '((eex-elixir
@@ -93,6 +94,15 @@
     :back " %>"))) ;; regex to find the closing tag
 
 (mmm-add-mode-ext-class 'mhtml-mode nil 'eex-elixir)
+
+(mmm-add-classes
+ '((eex-elixir
+    :submode elixir-mode
+    :face mmm-declaration-submode-face
+    :front "<%[#=%] " ;; regex to find the opening tag
+    :back " %>"))) ;; regex to find the closing tag
+
+(mmm-add-mode-ext-class 'scss-mode nil 'eex-elixir)
 
 ;; set automatic desktop save sessions and load on opening
 (desktop-save-mode 1)
