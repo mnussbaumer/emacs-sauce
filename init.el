@@ -34,6 +34,15 @@
 ;; bind the M-x key to smex
 (global-set-key (kbd "M-x") 'smex)
 
+;; xquartz 
+(defun x-select-text (text))
+(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
+(setq x-select-enable-primary t)
+(setq select-enable-primary t)
+(setq mouse-drag-copy-region nil)
+
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 ;; use ido auto completions for the command line buffer, ie. when browsing the filesystem
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
