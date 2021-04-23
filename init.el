@@ -123,3 +123,13 @@
 ;; do auto buffer reverts when files are changed on disk and the buffer has no unsaved changes,
 ;; useful for git when changing branches to re-update all buffers that are open
 (global-auto-revert-mode)
+
+;; xquart
+(defun x-select-text (text))
+(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
+(setq x-select-enable-primary t)
+(setq select-enable-primary t)
+(setq mouse-drag-copy-region nil)
+
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
